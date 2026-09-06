@@ -34,11 +34,24 @@
 
   body{
     margin:0;
+    position:relative;
     background:linear-gradient(180deg, #f7f1ea 0%, #f2ece4 36%, #f8f5f0 100%);
     color:var(--charcoal);
     font-family:'Inter', sans-serif;
     line-height:1.7;
   }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url('images/guinex-logo.jpg') center/42% no-repeat;
+    opacity:0.035;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  body > *{position:relative;z-index:1;}
 
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
