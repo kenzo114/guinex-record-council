@@ -391,7 +391,8 @@
   }
 
   .event-card{
-    display:flex;
+    display:grid;
+    grid-template-columns:86px 150px 1fr;
     gap:18px;
     align-items:flex-start;
     background:rgba(255,255,255,0.82);
@@ -409,6 +410,29 @@
     inset:0;
     background:linear-gradient(135deg, rgba(217,173,82,0.18), transparent 40%, rgba(12,77,87,0.12));
     pointer-events:none;
+  }
+
+  .event-media{
+    width:100%;
+    min-width:120px;
+    height:180px;
+    overflow:hidden;
+    border-radius:14px;
+    border:1px solid rgba(12,77,87,0.14);
+    background:#ffffff;
+    box-shadow:0 12px 20px -18px rgba(16,24,43,0.5);
+    padding:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .event-media img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+    background:#fff;
   }
 
   .event-date{
@@ -527,7 +551,7 @@
   @media (max-width:720px){
     .site-header{
       flex-direction:column;
-      align-items:flex-start;
+      align-items:center;
       gap:16px;
       padding:18px 18px 20px;
     }
@@ -541,19 +565,28 @@
     }
 
     .brand img{
-      height:135px;
+      height:110px;
     }
 
     .header-nav{
       width:100%;
       justify-content:center;
       margin:0;
-      gap:8px;
+      gap:8px 10px;
+      flex-wrap:wrap;
     }
 
     .header-nav a{
-      font-size:0.68rem;
-      padding:7px 10px;
+      font-size:0.62rem;
+      padding:6px 8px;
+      letter-spacing:0.06em;
+    }
+
+    .mca-badge{
+      width:min(140px, 42vw);
+      height:auto;
+      max-height:72px;
+      margin:0 auto;
     }
 
     .hero{
@@ -578,8 +611,15 @@
     }
 
     .event-card{
-      flex-direction:column;
+      grid-template-columns:78px 1fr;
       align-items:flex-start;
+    }
+
+    .event-media{
+      grid-column:2;
+      width:100%;
+      max-width:220px;
+      height:200px;
     }
 
     .event-date{
@@ -599,6 +639,9 @@
     .showcase-header h2{ font-size:1.8rem; }
     .hero h1{ font-size:2.5rem; }
     .hero p.lede{ font-size:0.96rem; }
+    .header-nav{ gap:6px 8px; }
+    .header-nav a{ font-size:0.58rem; padding:5px 7px; }
+    .mca-badge{ width:min(120px, 38vw); max-height:62px; }
   }
 
   .photo-frame{
@@ -1475,45 +1518,37 @@
   </div>
 
   <div class="event-list">
-    <h3t style="text-align: center;">Will update shortly</h3>
-    <!-- <article class="event-card">
+    <article class="event-card">
       <div class="event-date">
-        <span class="event-day">12</span>
+        <span class="event-day">14</span>
         <span class="event-month">Oct</span>
       </div>
+      <div class="event-media">
+        <img src="images/baratham.jpeg" alt="Guinex Record Council and Guinness World Book of Record event poster for 1000 participants" loading="lazy">
+      </div>
       <div class="event-copy">
-        <div class="event-pill">Book launch</div>
-        <h3>Guinex Record Council Book Launch</h3>
-        <p><strong>Date:</strong> 12 October 2026</p>
-        <p><strong>Venue:</strong> Indian Ocean Convention Hall, Maldives</p>
+        <div class="event-pill">World record attempt</div>
+        <h3>Baratham(Sivan Formation — 1000 Participants)</h3>
+        <p><strong>Date:</strong> 14 October 2026</p>
+        <p><strong>Venue:</strong> Perambalur, Tamil Nadu</p>
       </div>
     </article>
 
     <article class="event-card">
       <div class="event-date">
-        <span class="event-day">28</span>
-        <span class="event-month">Nov</span>
+        <span class="event-day">14</span>
+        <span class="event-month">Oct</span>
+      </div>
+      <div class="event-media">
+        <img src="images/valluvar.jpeg" alt="Panimalar Group of Institutions record event poster for 1500 students" loading="lazy">
       </div>
       <div class="event-copy">
-        <div class="event-pill">Recognition summit</div>
-        <h3>National Record Makers Summit</h3>
-        <p><strong>Date:</strong> 28 November 2026</p>
-        <p><strong>Venue:</strong> Chennai International Convention Centre, India</p>
+        <div class="event-pill">Youth achievement</div>
+        <h3>1500 Student Thiruvalluvar Formation</h3>
+        <p><strong>Date:</strong> 14 October 2026</p>
+        <p><strong>Venue:</strong> Panimalar Group of Institutions, Perambalur</p>
       </div>
     </article>
-
-    <article class="event-card">
-      <div class="event-date">
-        <span class="event-day">18</span>
-        <span class="event-month">Dec</span>
-      </div>
-      <div class="event-copy">
-        <div class="event-pill">Youth awards</div>
-        <h3>Young Achievers Recognition Evening</h3>
-        <p><strong>Date:</strong> 18 December 2026</p>
-        <p><strong>Venue:</strong> Grand Hall, Coimbatore, India</p>
-      </div>
-    </article> -->
   </div>
 </section>
 
