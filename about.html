@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpeg" href="images/guinex-logo.jpg">
+<link rel="shortcut icon" type="image/jpeg" href="images/guinex-logo.jpg">
+<title>About the Council — GUINEX RECORD COUNCIL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#160f12; --ink-soft:#413a3d; --gold:#d9ad52; --gold-deep:#a77a2e; --gold-light:#f6e1b3; --teal:#0c4d57; --teal-soft:#1a6a75;
+    --ivory:#f9f4ee; --paper:#fffdf9; --stone:#eadfcd; --charcoal:#231f22; --line:rgba(22,15,18,0.12);
+    --navy:#1a2340; --navy-deep:#10182b; --red:#ce2a2a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:linear-gradient(180deg, #f7f1ea 0%, #f2ece4 36%, #f8f5f0 100%);color:var(--charcoal);font-family:'Inter',sans-serif;line-height:1.7;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;margin:0;color:var(--ink);}
+  a{color:var(--teal);}
+  .site-header{max-width:1180px;margin:26px auto 0;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg, rgba(15,22,38,0.98) 0%, rgba(26,35,64,0.96) 100%);border:1px solid rgba(246,225,179,0.38);border-radius:18px;box-shadow:0 22px 42px -28px rgba(18,24,41,0.7);backdrop-filter:blur(6px);}
+  .brand{display:flex;align-items:center;gap:18px;font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.4rem, 2vw, 2rem);color:var(--ivory);letter-spacing:-0.02em;}
+  .brand img{height:110px;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 14px 18px rgba(29,27,25,0.12));}
+  .brand a{text-decoration:none;color:var(--ivory);}
+  .header-nav{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-left:auto;
+    margin-right:18px;
+  }
+  .header-nav a{
+    color:var(--gold-light);
+    text-decoration:none;
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .header-nav a:hover{ color:#ffffff; }
+
+  .page-hero{
+    background:linear-gradient(135deg, #1b1a1e 0%, #212734 46%, #141b2a 100%);
+    color:var(--ivory);margin:24px 0 0;padding:56px 24px 96px;text-align:center;position:relative;overflow:hidden;
+  }
+  .page-hero img{width:110px;height:110px;object-fit:contain;display:block;margin:0 auto 18px;}
+  .page-hero h1{color:var(--ivory);font-size:clamp(2.4rem,5vw,3.2rem);letter-spacing:-0.04em;}
+  .page-hero p{max-width:52ch;margin:14px auto 0;color:rgba(251,247,239,0.78);font-size:1.05rem;}
+
+  .wrap{max-width:820px;margin:-56px auto 0;padding:0 24px 80px;}
+
+  .card{
+    background:var(--paper);border:1.5px solid var(--gold);border-radius:6px;
+    padding:36px clamp(20px,5vw,48px);box-shadow:0 30px 60px -25px rgba(20,33,61,0.35);
+    margin-bottom:40px;
+  }
+
+  .card p{color:rgba(35,35,35,0.8);margin:0 0 12px;}
+  .card p:last-child{margin-bottom:0;}
+
+  .tagline{
+    text-align:center;font-family:'Fraunces',serif;font-style:italic;color:var(--teal);
+    font-size:1.05rem;margin-bottom:18px;
+  }
+
+  .directors-heading{
+    text-align:center;margin:0 0 34px;font-size:1.5rem;
+  }
+
+  .directors{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+
+  @media (max-width:560px){
+    .directors{grid-template-columns:1fr;}
+  }
+
+  .director-card{
+    background:var(--paper);
+    border:1.5px solid var(--gold);
+    border-radius:6px;
+    padding:28px 22px;
+    text-align:center;
+    box-shadow:0 20px 40px -22px rgba(20,33,61,0.3);
+  }
+
+  .director-photo{
+    width:120px;height:120px;border-radius:50%;overflow:hidden;
+    margin:0 auto 16px;border:3px solid var(--ivory);outline:1.5px solid var(--gold);
+    background:linear-gradient(180deg, rgba(231,208,162,0.35) 0%, rgba(255,255,255,0.06) 100%);
+  }
+  .director-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transform:scale(1.03);}
+
+  .director-name{font-size:1.1rem;margin-bottom:4px;}
+  .director-role{
+    font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--teal);font-weight:600;
+  }
+
+  footer{text-align:center;padding:28px 24px 40px;font-size:0.82rem;color:rgba(35,35,35,0.5);}
+  footer nav{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-bottom:14px;}
+  footer nav a{color:var(--teal);text-decoration:none;font-weight:600;font-size:0.85rem;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <img src="images/guinex-logo.jpg" alt="Guinex Record Council logo">
+    <a href="index.html">GUINEX RECORD COUNCIL</a>
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <img src="images/guinex-logo.jpg" alt="Guinex Record Council logo">
+  <h1>Guinex Record Council</h1>
+  <p>Recognizing talent, inspiring the world.</p>
+</section>
+
+<div class="wrap">
+  <div class="card">
+    <p class="tagline">"Recognizing Talent, Inspiring the World"</p>
+    <p>
+      The <strong>Guinex Record Council</strong> is dedicated to identifying, documenting, and
+      celebrating remarkable achievements — from a toddler's first big milestone to a lifetime of
+      mastery in a craft. Every record on this roll is reviewed and presented in keeping with the
+      Council's mission: to give talent, at every age and in every field, a record worth keeping.
+    </p>
+    <p>
+      Based in Thuraiyur, Trichy District, Tamil Nadu, the Council works with individuals,
+      families, schools, and academies across the region to bring their achievements to a wider
+      audience, one certificate at a time.
+    </p>
+  </div>
+
+  <h2 class="directors-heading">Directors</h2>
+  <div class="directors">
+    <div class="director-card">
+      <div class="director-photo">
+        <img src="images/director-ramesh.png" alt="L. Ramesh, Director">
+      </div>
+      <div class="director-name">L. Ramesh, B.A.</div>
+      <div class="director-role">Director</div>
+    </div>
+    <div class="director-card">
+      <div class="director-photo">
+        <img src="images/director-gayathri.png" alt="S. Gayathri, Director">
+      </div>
+      <div class="director-name">S. Gayathri, B.Sc.</div>
+      <div class="director-role">Director</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <nav>
+    <a href="faq.html">FAQ</a>
+    <a href="terms.html">Terms &amp; Conditions</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
+  GUINEX RECORD COUNCIL — a keepsake, not an official world-record body.
+</footer>
+
+</body>
+</html>
