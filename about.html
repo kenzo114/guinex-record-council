@@ -18,10 +18,12 @@
   body{margin:0;background:linear-gradient(180deg, #f7f1ea 0%, #f2ece4 36%, #f8f5f0 100%);color:var(--charcoal);font-family:'Inter',sans-serif;line-height:1.7;}
   h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;margin:0;color:var(--ink);}
   a{color:var(--teal);}
-  .site-header{max-width:1180px;margin:26px auto 0;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg, rgba(15,22,38,0.98) 0%, rgba(26,35,64,0.96) 100%);border:1px solid rgba(246,225,179,0.38);border-radius:18px;box-shadow:0 22px 42px -28px rgba(18,24,41,0.7);backdrop-filter:blur(6px);}
+  .site-header{max-width:1180px;margin:26px auto 0;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg, rgba(15,22,38,0.98) 0%, rgba(26,35,64,0.96) 100%);border:1px solid rgba(246,225,179,0.38);border-radius:18px;box-shadow:0 22px 42px -28px rgba(18,24,41,0.7);backdrop-filter:blur(6px);position:relative;overflow:hidden;}
+  .site-header::after{content:"";position:absolute;inset:0;background:url('images/guinex-logo.jpg') center/240px no-repeat;opacity:0.08;pointer-events:none;}
   .brand{display:flex;align-items:center;gap:18px;font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.4rem, 2vw, 2rem);color:var(--ivory);letter-spacing:-0.02em;}
-  .brand img{height:110px;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 14px 18px rgba(29,27,25,0.12));}
+  .brand img{height:170px;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 14px 18px rgba(29,27,25,0.12));}
   .brand a{text-decoration:none;color:var(--ivory);}
+  .brand,.header-nav{position:relative;z-index:1;}
   .header-nav{
     display:flex;
     align-items:center;
@@ -39,6 +41,8 @@
     text-transform:uppercase;
   }
   .header-nav a:hover{ color:#ffffff; }
+  .mca-badge{width:230px;height:110px;object-fit:contain;display:block;border:1px solid rgba(246,225,179,0.45);border-radius:8px;position:relative;z-index:1;}
+  @media (max-width:720px){.site-header{flex-direction:column;gap:14px;padding:16px 18px 20px;}.brand{flex-direction:column;gap:10px;text-align:center;}.mca-badge{width:220px;height:100px;}.header-nav{justify-content:center;margin:0;}}
 
   .page-hero{
     background:linear-gradient(135deg, #1b1a1e 0%, #212734 46%, #141b2a 100%);
@@ -116,6 +120,7 @@
     <a href="index.html">Home</a>
     <a href="contact.html">Contact Us</a>
   </nav>
+  <img class="mca-badge" src="images/mca-registration.jpeg" alt="Authorised and registered under the Ministry of Corporate Affairs, Government of India">
 </header>
 
 <section class="page-hero">

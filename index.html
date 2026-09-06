@@ -70,6 +70,15 @@
     overflow:hidden;
   }
 
+  .site-header::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url('images/guinex-logo.jpg') center/240px no-repeat;
+    opacity:0.08;
+    pointer-events:none;
+  }
+
   .brand{
     display:flex;
     align-items:center;
@@ -85,7 +94,7 @@
 
   .brand img{
     width:auto;
-    height:110px;
+    height:170px;
     object-fit:contain;
     display:block;
     filter:drop-shadow(0 14px 18px rgba(29,27,25,0.12));
@@ -124,6 +133,17 @@
     color:#ffffff;
     background:rgba(246,225,179,0.12);
     box-shadow:inset 0 0 0 1px rgba(246,225,179,0.16);
+  }
+
+  .mca-badge{
+    width:230px;
+    height:110px;
+    object-fit:contain;
+    display:block;
+    border:1px solid rgba(246,225,179,0.45);
+    border-radius:8px;
+    position:relative;
+    z-index:1;
   }
 
   /* ---------- Hero ---------- */
@@ -521,7 +541,7 @@
     }
 
     .brand img{
-      height:88px;
+      height:135px;
     }
 
     .header-nav{
@@ -793,6 +813,7 @@
     <a href="#upcoming-events" class="active" aria-current="page">Upcoming Events</a>
     <a href="contact.html">Contact Us</a>
   </nav>
+  <img class="mca-badge" src="images/mca-registration.jpeg" alt="Authorised and registered under the Ministry of Corporate Affairs, Government of India">
 </header>
 
 <section class="hero" id="home">
