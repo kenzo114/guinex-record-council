@@ -149,6 +149,44 @@
     box-shadow:inset 0 0 0 1px rgba(246,225,179,0.16);
   }
 
+  .nav-badge{
+    position:relative;
+    overflow:hidden;
+    display:inline-block;
+    margin-left:6px;
+    padding:2px 6px;
+    border-radius:999px;
+    color:#352300;
+    background:#f4bd38;
+    border:1px solid #ffd96a;
+    font-size:0.55rem;
+    font-style:normal;
+    letter-spacing:0.08em;
+    line-height:1.2;
+    vertical-align:middle;
+    animation:nav-badge-pulse 2.8s ease-in-out infinite;
+  }
+
+  .nav-badge::after{
+    content:"";
+    position:absolute;
+    inset:-20% auto -20% -55%;
+    width:38%;
+    background:rgba(255,255,255,0.85);
+    transform:skewX(-20deg);
+    animation:nav-badge-shine 2.8s ease-in-out infinite;
+  }
+
+  @keyframes nav-badge-shine{
+    0%, 55%{left:-55%;}
+    75%, 100%{left:125%;}
+  }
+
+  @keyframes nav-badge-pulse{
+    0%, 100%{box-shadow:0 0 0 0 rgba(244,189,56,0.12);}
+    50%{box-shadow:0 0 0 4px rgba(244,189,56,0.24);}
+  }
+
   .mca-badge{
     width:230px;
     height:110px;
@@ -163,30 +201,53 @@
   /* ---------- Hero ---------- */
   .hero{
     background:
-      radial-gradient(circle at top, rgba(217,173,82,0.26), transparent 38%),
-      linear-gradient(135deg, #0b1220 0%, #17233d 42%, #10182b 100%);
+      linear-gradient(115deg, rgba(217,173,82,0.12), transparent 34%),
+      linear-gradient(295deg, rgba(12,77,87,0.28), transparent 42%),
+      #10182b;
     color:var(--ivory);
     margin:24px 0 0;
-    padding:76px 24px 112px;
-    text-align:center;
+    padding:86px 24px 96px;
     position:relative;
     overflow:hidden;
     border-top:1px solid rgba(246,225,179,0.14);
     border-bottom:1px solid rgba(246,225,179,0.1);
   }
 
-  .hero::before, .hero::after{
+  .hero::before{
     content:"";
     position:absolute;
-    width:420px;
-    height:420px;
-    border:1px solid rgba(231,208,162,0.22);
-    border-radius:50%;
-    top:50%;
-    transform:translateY(-50%);
+    inset:0;
+    background-image:linear-gradient(rgba(246,225,179,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(246,225,179,0.05) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:linear-gradient(90deg, transparent, black 25%, black 75%, transparent);
+    pointer-events:none;
   }
-  .hero::before{ left:-180px; }
-  .hero::after{ right:-180px; }
+
+  .hero-inner{
+    max-width:1180px;
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:minmax(0, 1.3fr) minmax(300px, 0.7fr);
+    gap:72px;
+    align-items:center;
+  }
+
+  .hero-copy{max-width:720px;}
+
+  @keyframes hero-reveal{
+    from{opacity:0; transform:translateY(18px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  .hero-copy{
+    animation:hero-reveal 0.75s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .hero-mission{
+    animation:hero-reveal 0.75s 0.18s cubic-bezier(0.22,1,0.36,1) both;
+  }
 
   .hero-kicker{
     font-size:0.9rem;
@@ -200,19 +261,110 @@
 
   .hero h1{
     color:var(--ivory);
-    font-size:clamp(2.8rem, 6vw, 5rem);
-    line-height:0.96;
-    margin:18px auto 20px;
-    max-width:14ch;
+    font-size:clamp(2.8rem, 6vw, 5.7rem);
+    line-height:0.94;
+    margin:18px 0 24px;
+    max-width:12ch;
     letter-spacing:-0.04em;
   }
 
   .hero p.lede{
-    max-width:46ch;
-    margin:0 auto;
+    max-width:58ch;
+    margin:0;
     color:rgba(251,247,239,0.8);
     font-size:1.05rem;
     letter-spacing:0.01em;
+  }
+
+  .hero-link{
+    display:inline-flex;
+    align-items:center;
+    padding:11px 16px;
+    color:var(--navy-deep);
+    background:var(--gold-light);
+    border-radius:4px;
+    font-weight:700;
+    text-decoration:none;
+    transition:background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-link:hover,
+  .hero-link:focus-visible{
+    background:#ffffff;
+    transform:translateY(-2px);
+  }
+
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+    margin-top:26px;
+  }
+
+  .hero-link-secondary{
+    color:var(--gold-light);
+    background:transparent;
+    border:1px solid rgba(246,225,179,0.62);
+  }
+
+  .hero-link-secondary:hover,
+  .hero-link-secondary:focus-visible{
+    color:var(--navy-deep);
+    background:var(--gold-light);
+  }
+
+  .hero-mission{
+    border-left:1px solid rgba(246,225,179,0.35);
+    padding-left:28px;
+  }
+
+  .hero-mission-label{
+    color:var(--gold-light);
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+  }
+
+  .hero-mission h2{
+    color:var(--ivory);
+    font-size:clamp(1.7rem, 3vw, 2.5rem);
+    line-height:1.08;
+    margin:12px 0 24px;
+  }
+
+  .hero-values{
+    display:grid;
+    gap:15px;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+
+  .hero-values li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    color:rgba(251,247,239,0.78);
+    font-size:0.92rem;
+    line-height:1.45;
+    transition:transform 0.2s ease, color 0.2s ease;
+  }
+
+  .hero-values li:hover{
+    color:var(--ivory);
+    transform:translateX(5px);
+  }
+
+  .hero-values li::before{
+    content:"";
+    width:8px;
+    height:8px;
+    flex:0 0 8px;
+    margin-top:6px;
+    background:var(--gold);
+    box-shadow:0 0 0 4px rgba(217,173,82,0.12);
   }
 
   /* ---------- Achievement gallery ---------- */
@@ -607,6 +759,42 @@
       padding:56px 18px 74px;
     }
 
+    .hero-inner{
+      grid-template-columns:1fr;
+      gap:42px;
+    }
+
+    .hero-copy,
+    .hero h1,
+    .hero p.lede{
+      text-align:center;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .hero-link{
+      display:flex;
+      width:max-content;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .hero-actions{
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .hero-mission{
+      border-top:1px solid rgba(246,225,179,0.35);
+      border-left:0;
+      padding:28px 0 0;
+      text-align:center;
+    }
+
+    .hero-values li{
+      text-align:left;
+    }
+
     .hero h1{
       max-width:11ch;
     }
@@ -777,16 +965,28 @@
   }
 
   .placeholder-slot{
-    border:1.5px dashed var(--line);
-    border-radius:4px;
+    border:1px solid rgba(12,77,87,0.2);
+    border-radius:12px;
     height:120px;
     display:flex;
     align-items:center;
     justify-content:center;
-    color:rgba(35,35,35,0.35);
+    color:var(--teal);
+    background:linear-gradient(135deg, rgba(246,225,179,0.72), rgba(255,255,255,0.82) 52%, rgba(193,225,218,0.56));
     font-size:0.8rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
     font-family:'Fraunces', serif;
     font-style:italic;
+    box-shadow:0 14px 28px -24px rgba(12,77,87,0.65);
+    transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .placeholder-slot:hover{
+    border-color:var(--gold);
+    transform:translateY(-5px);
+    box-shadow:0 20px 34px -24px rgba(12,77,87,0.55);
   }
 
   .gallery-grid{
@@ -803,6 +1003,22 @@
     object-position:center center;
     border-radius:4px;
     border:1px solid var(--line);
+    animation:gallery-reveal 0.6s ease both;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @keyframes gallery-reveal{
+    from{opacity:0; transform:translateY(12px) scale(0.98);}
+    to{opacity:1; transform:translateY(0) scale(1);}
+  }
+
+  .gallery-grid img:nth-child(2){animation-delay:0.08s;}
+  .gallery-grid img:nth-child(3){animation-delay:0.16s;}
+  .gallery-grid img:nth-child(4){animation-delay:0.24s;}
+
+  .gallery-grid img:hover{
+    transform:scale(1.035);
+    box-shadow:0 12px 24px -16px rgba(16,24,43,0.55);
   }
 
   .gallery-caption{
@@ -867,16 +1083,34 @@
     <a href="#archive">Archive</a>
     <a href="#special-launch">Book Launch</a>
     <a href="#record-achievements">Record Achievements</a>
-    <a href="#upcoming-events" class="active" aria-current="page">Upcoming Events</a>
+    <a href="#upcoming-events" class="active" aria-current="page">Upcoming Events <span class="nav-badge">NEW</span></a>
     <a href="contact.html">Contact Us</a>
   </nav>
   <img class="mca-badge" src="images/mca-registration.jpeg" alt="Authorised and registered under the Ministry of Corporate Affairs, Government of India">
 </header>
 
 <section class="hero" id="home">
-  <div class="hero-kicker">presented by the Guinex Record Council</div>
-  <h1>Every small wonder deserves a record of its own</h1>
-  <p class="lede">A growing roll of remarkable achievers — the words they learned, the milestones they beat, and the moments worth remembering. <a href="about.html" style="color:var(--gold-light);">Learn about the council →</a></p>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-kicker">Presented by the Guinex Record Council</div>
+      <h1>Every small wonder deserves a record of its own.</h1>
+      <p class="lede">We conduct achievement events, discover extraordinary talent in every nook and corner, and bring remarkable stories into the light. From a young learner's first milestone to a world-class performance, every achiever deserves to be identified, recognised, and motivated to go further.</p>
+      <div class="hero-actions">
+        <a class="hero-link" href="about.html">Discover the council <span aria-hidden="true">&nbsp;→</span></a>
+        <a class="hero-link hero-link-secondary" href="https://wa.me/919655779904?text=I%20want%20to%20share%20my%20talent%20with%20Guinex%20Record%20Council" target="_blank" rel="noopener">Find your talent <span aria-hidden="true">&nbsp;↗</span></a>
+      </div>
+    </div>
+
+    <aside class="hero-mission" aria-label="The council mission">
+      <div class="hero-mission-label">Our worldwide mission</div>
+      <h2>Find the extraordinary wherever it begins.</h2>
+      <ul class="hero-values">
+        <li>Conduct meaningful record and achievement events.</li>
+        <li>Identify talent from every community and corner of the world.</li>
+        <li>Recognise effort and motivate achievers to dream bigger.</li>
+      </ul>
+    </aside>
+  </div>
 </section>
 
 <section class="achievement-showcase" id="achievements">
